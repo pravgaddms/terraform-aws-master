@@ -1,0 +1,9 @@
+owner                = "Devops"
+cidr_block           = "10.43.0.0/16"
+name                 = "terraform"
+public_subnet_cidrs  = ["10.43.1.0/24", "10.43.2.0/24", "10.43.3.0/24"]
+private_subnet_cidrs = ["10.43.100.0/24", "10.43.101.0/24", "10.43.102.0/24"]
+azs                  = ["us-east-1a", "us-east-1b", "us-east-1c"]
+key_name             = "windows_key"
+imagename            = "ami-0e001c9271cf7f3b9"
+env ="Dev"

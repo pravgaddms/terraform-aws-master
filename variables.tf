@@ -1,0 +1,9 @@
+variable "owner" {}
+variable "cidr_block" {}
+variable "public_subnet_cidrs" {}
+variable "private_subnet_cidrs" {}
+variable "name" {}
+variable "azs" {}
+variable "imagename" {}
+variable "key_name" {}
+variable "env" {}
