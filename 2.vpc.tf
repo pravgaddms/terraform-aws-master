@@ -1,4 +1,4 @@
-resource "aws_vpc" "main" {
+resource "aws_vpc" "devops" {
   cidr_block       = var.cidr_block
   instance_tenancy = "default"
 
@@ -9,7 +9,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.devops.id
 
   tags = {
     Name = "${var.name} IGW"

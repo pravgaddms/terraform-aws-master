@@ -1,5 +1,5 @@
 resource "aws_route_table" "public" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.devops.id
 
   route {
     cidr_block = "0.0.0.0/0"
@@ -18,7 +18,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_route_table" "private" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.devops.id
 
   tags = {
     Name = "${var.name} Private RT"

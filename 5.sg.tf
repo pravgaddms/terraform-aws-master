@@ -6,7 +6,7 @@ data "http" "mymachineip" {
 resource "aws_security_group" "allowall" {
   name        = "${var.name} allow all"
   description = "Allow TLS inbound traffic and all outbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.devops.id
   ingress {
     from_port   = 0
     to_port     = 0
@@ -17,7 +17,7 @@ resource "aws_security_group" "allowall" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["${chomp(data.http.mymachineip.response_body)}/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
     Name = "${var.name} allow all"
@@ -28,12 +28,13 @@ resource "aws_security_group" "allowall" {
 resource "aws_security_group" "allow_few" {
   name        = "${var.name} only few"
   description = "Allow TLS inbound traffic and all outbound traffic"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.devops.id
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    # cidr_blocks = ["${chomp(data.http.mymachineip.response_body)}/32"]
   }
 
   ingress {
@@ -41,6 +42,7 @@ resource "aws_security_group" "allow_few" {
     to_port     = 3389
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+    # cidr_blocks = ["${chomp(data.http.mymachineip.response_body)}/32"]
   }
 
   egress {

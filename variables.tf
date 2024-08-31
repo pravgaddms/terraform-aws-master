@@ -4,6 +4,6 @@ variable "public_subnet_cidrs" {}
 variable "private_subnet_cidrs" {}
 variable "name" {}
 variable "azs" {}
-variable "imagename" {}
+variable "image_name" {}
 variable "key_name" {}
 variable "env" {}
